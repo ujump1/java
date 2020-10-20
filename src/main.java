@@ -22,8 +22,15 @@ public class main {
     public static void main(String args[]) throws ParseException, IOException {
 
 
+        BigDecimal halfUp1 = new BigDecimal("1.4");
+        BigDecimal halfUp2 = new BigDecimal("1.6");
+        int halfUp11 = halfUp1.setScale(0,BigDecimal.ROUND_HALF_UP).intValue();
+        int halfUp12 = halfUp2.setScale(0,BigDecimal.ROUND_HALF_UP).intValue();
+
         String spilt123="1";
         List<String> idList1111 = Arrays.asList(spilt123.split(","));
+        List<String> idList1112 = new ArrayList<>();
+        idList1112.addAll(idList1111);   // 用addAll 来赋值 如果用等于的话 两个列表其实就是一个
 
         Calendar calendarNow = Calendar.getInstance();
         calendarNow.set(2020, 2, 30);
