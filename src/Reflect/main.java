@@ -9,7 +9,8 @@ public class main {
         Class Student=null;
         Object student1=null;
         try {
-            Student = Class.forName("Entity.student");
+           // Student = Class.forName("Entity.student");
+            Student = student.class;
             student1=Student.newInstance();
         }catch (Exception e)
         {

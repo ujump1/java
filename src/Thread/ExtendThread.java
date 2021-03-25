@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class thread1 extends Thread{
+public class ExtendThread extends Thread{
 //    //可修改名字
 //    public thread1(String name){
 //        super(name);
@@ -28,7 +28,7 @@ public class thread1 extends Thread{
 //        ttt1.run();
 //
 //    }
-    public thread1(String name){
+    public ExtendThread(String name){
         super(name);
     }
     public void run(){
@@ -39,9 +39,9 @@ public class thread1 extends Thread{
     public static void main(String args[]){
         System.out.println(Thread.currentThread().getName());
         ExecutorService cachedThreadPools= Executors.newCachedThreadPool();
-        thread1 ttt=new thread1("tttt");
+        ExtendThread ttt=new ExtendThread("tttt");
         ttt.start();
-        thread1 ttt1=new thread1("tttt1");
+        ExtendThread ttt1=new ExtendThread("tttt1");
         cachedThreadPools.execute(ttt1);
         cachedThreadPools.execute(ttt);
         cachedThreadPools.submit(ttt1);

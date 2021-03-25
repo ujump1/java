@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -19,10 +20,88 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class main {
-    public static void main(String args[]) throws ParseException, IOException {
+    public static void main(String args[]) throws ParseException, IOException, InterruptedException {
 
 
-        BigDecimal halfUp1 = new BigDecimal("1.4");
+        for (int j=0; j < 10; j++ ){
+            if(j==1){
+                continue;
+            }
+            System.out.println(j);
+        }
+
+
+        long expires = System.currentTimeMillis();
+        Thread.sleep(10);
+        long expires1 = System.currentTimeMillis();
+
+
+        Map<String,String> invoiceCodeAndNumber = new HashMap<>();
+        invoiceCodeAndNumber.put("","");
+
+        student student1 = new student();
+        student1.setName("123");
+        student student12 = new student();
+        student12.setName("123");
+        Map <student,String>  map1= new HashMap<>();
+        map1.put(student1,"1");
+
+        Map <student,String>  map2= new HashMap<>();
+        map2.put(student12,"2");
+        for(student student : map1.keySet()){
+            map2.get(student);
+        }
+
+        String test1111 = "";
+        String test1112 = "123";
+        test1111 = test1112;
+        test1112 = "123445";
+
+        BigDecimal bigDecimal11111= new BigDecimal("1.111");
+        BigDecimal bigDecimal11112 = bigDecimal11111.setScale(-1);
+        Calendar now = Calendar.getInstance();
+        String timeStampNow = String.valueOf(now.getTime().getTime());
+        now.add(Calendar.MINUTE, 5);
+        String timeStampAfter = String.valueOf(now.getTime().getTime());
+        now.add(Calendar.MINUTE,-10);//减去五分钟
+        String timeStampBefore = String.valueOf(now.getTime().getTime());
+        System.out.println(timeStampBefore);
+        System.out.println(timeStampNow);
+        System.out.println(timeStampAfter);
+
+        String sqdh = "A123-1-1";
+        if( sqdh.contains("-") && sqdh.length()>1) {
+            String oaSerialnumber = sqdh.substring(1,sqdh.indexOf("-"));
+        }
+
+        BigDecimal amount123 =new BigDecimal("100");
+        BigDecimal bigDecimalnull = null;
+        int aaaaaaa = amount123.divide(bigDecimalnull).intValue();
+
+
+        double numericCellValue = 1111111111.1;
+         new BigDecimal(Double.toString(numericCellValue)).toString();
+
+        Calendar calendarNow = Calendar.getInstance();
+        calendarNow.set(Calendar.YEAR,calendarNow.get(Calendar.YEAR)-1);
+        calendarNow.add(Calendar.MINUTE,-1);
+        Date dateNow = calendarNow.getTime();
+        Date datNow1 = new Date();
+        SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyyMMddHHmmss");
+        String datedate = dateFormat2.format(dateNow);
+
+
+        Map<String,String> map111 = new HashMap();
+        String sInMap =  map111.get("1");
+        student studentTest = new student();
+
+        String s12311 =null;
+        s12311= (s12311 == null ? "":s12311)+"123";
+        s12311 = s12311.substring(0,1);
+        s12311 = s12311 + "\n"+"2";
+        BigDecimal halfUp1 = new BigDecimal("1.411");
+        BigDecimal halfUp3 = halfUp1.setScale(3, BigDecimal.ROUND_HALF_UP);
+        halfUp3 = halfUp3.setScale(2,BigDecimal.ROUND_HALF_UP);
         BigDecimal halfUp2 = new BigDecimal("1.6");
         int halfUp11 = halfUp1.setScale(0,BigDecimal.ROUND_HALF_UP).intValue();
         int halfUp12 = halfUp2.setScale(0,BigDecimal.ROUND_HALF_UP).intValue();
@@ -32,11 +111,6 @@ public class main {
         List<String> idList1112 = new ArrayList<>();
         idList1112.addAll(idList1111);   // 用addAll 来赋值 如果用等于的话 两个列表其实就是一个
 
-        Calendar calendarNow = Calendar.getInstance();
-        calendarNow.set(2020, 2, 30);
-        calendarNow.set(Calendar.YEAR,calendarNow.get(Calendar.YEAR)-1);
-        SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-        String datedate = dateFormat2.format(calendarNow.getTime());
 
 
 
@@ -64,9 +138,7 @@ public class main {
 
 
 
-        for (int j=0; j < 0; j++ ){
-            System.out.println("1");
-        }
+
         String integerTest = "1";
         Integer integerTest1 = 1000;
         System.out.println(integerTest1.equals(1000));

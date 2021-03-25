@@ -1,6 +1,6 @@
 package Thread;
 
-public class thread2 implements Runnable{
+public class ImplementsRunble implements Runnable{
 //    //自定义变量
 //    private int i;
 //    //重写run()方法，run()方法的方法体是线程执行体
@@ -27,7 +27,7 @@ public class thread2 implements Runnable{
 //    }
     private int i;
 
-    public thread2(int i) {
+    public ImplementsRunble(int i) {
         this.i = i;
     }
 
@@ -38,7 +38,7 @@ public class thread2 implements Runnable{
     }
     public static void main(String args[]){
         System.out.println(Thread.currentThread().getName());
-        thread2 tt=new thread2(1);
+        ImplementsRunble tt=new ImplementsRunble(1);
         new Thread(tt,"tt1").start();
         new Thread(tt,"tt2").start();
         new Thread(()->{

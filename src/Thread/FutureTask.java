@@ -8,7 +8,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class futuretask {
+/**
+ * Future可用来接收ExecutorService.submit 和 invokeAll,接收返回值submit不阻塞，invokeAll阻塞，他们都会在get地方阻塞。
+ * FutureTask 实现了了RunnableFuture其余用法参见RunnableAndCallable
+ */
+public class FutureTask {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         long sum = 0;
