@@ -106,8 +106,22 @@ public class stream {
             System.out.print(s+" ");
         }
         //findany findone 还有match 这里略
-
-
+        // 并行(存在并发多线程安全问题)
+        List<Integer> integers = new ArrayList<>();
+        for(int i=0;i<1000;i++){
+            integers.add(i);
+        }
+        List<Integer> integerList = new ArrayList<>();
+        integers.stream().parallel().forEach(s->{
+            // 这里使用不安全得List 会使最后得integerList不会是100个数字
+            integerList.add(s);
+        });
+        for (Integer s : integers){
+            System.out.println(s+" ");
+        }
+        for (Integer s : integerList){
+            System.out.println(s+" ");
+        }
 
 
     }

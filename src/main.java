@@ -23,6 +23,27 @@ public class main {
     public static void main(String args[]) throws ParseException, IOException, InterruptedException {
 
 
+        Map<String,String> stringStringMap = new HashMap<>(16);
+        stringStringMap.put("1","1");
+        stringStringMap.put("2","1");
+        stringStringMap.put("3","1");
+        stringStringMap.put("4","1");
+        stringStringMap.put("5","1");
+        stringStringMap.put("6","1");
+        stringStringMap.put("17","1");
+        stringStringMap.put("18","1");
+        stringStringMap.put("19","1");
+        stringStringMap.put("20","1");
+        stringStringMap.put("21","1");
+
+
+        LinkedList<String> linkedList = new LinkedList();
+        linkedList.add("1");
+        linkedList.add("2");
+        linkedList.add("3");
+
+
+
         for (int j=0; j < 10; j++ ){
             if(j==1){
                 continue;
