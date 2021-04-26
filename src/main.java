@@ -12,15 +12,25 @@ import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class main {
     public static void main(String args[]) throws ParseException, IOException, InterruptedException {
+
+
+        CopyOnWriteArrayList<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+        int size = copyOnWriteArrayList.size();
+        copyOnWriteArrayList.add(123);
+        copyOnWriteArrayList.add(456);
+        Iterator iterator = copyOnWriteArrayList.iterator();
+        while(iterator.hasNext()){
+            Integer integer = (Integer) iterator.next();
+            Boolean b  = copyOnWriteArrayList.remove(integer);
+        }
+
+
 
 
         Map<String,String> stringStringMap = new HashMap<>(16);
