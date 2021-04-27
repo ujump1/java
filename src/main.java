@@ -20,6 +20,23 @@ public class main {
     public static void main(String args[]) throws ParseException, IOException, InterruptedException {
 
 
+        List<String> list1 = new ArrayList();
+        list1.add("123");
+        // List不要用等于，是直接指向同一个列表
+        List<String> list2 = new ArrayList<>();
+        list2=list1;
+        List<String> list3 = list1;
+
+        int a111 =2;
+        int b111 = a111;
+        a111 = 1;
+
+        Integer a1111 =2;
+        Integer b1111 = a1111;
+        a1111 = 1;
+
+
+
         CopyOnWriteArrayList<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         int size = copyOnWriteArrayList.size();
         copyOnWriteArrayList.add(123);
