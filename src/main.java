@@ -22,7 +22,7 @@ public class main {
 
         List<String> list1 = new ArrayList();
         list1.add("123");
-        // List不要用等于，是直接指向同一个列表
+        // List不要用等于（对象赋值都不要用等于赋值)，是直接指向同一个列表
         List<String> list2 = new ArrayList<>();
         list2=list1;
         List<String> list3 = list1;
