@@ -1,4 +1,4 @@
-package IO;
+package IO.FileIOStream;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -52,7 +52,7 @@ public class FileOutputStreamDemo {
 			fileOutputStream = new FileOutputStream(targetPath);
 			// 3.遍历读取并写入
 			int len = 0;
-			// 一次读取1024，防止文件过大造成溢出
+			// 一次读取1024字节，防止文件过大造成溢出
 			byte[] bys = new byte[1024];
 			while ((len = fileInputStream.read(bys)) != -1) {
 				fileOutputStream.write(bys,0,len);

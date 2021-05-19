@@ -1,4 +1,4 @@
-package IO;
+package IO.FileIOStream;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -46,6 +46,6 @@ public class FileInputStreamDemo {
 		String path = "D:\\Idea Projects\\mygit\\java\\src\\IO\\file1.txt";
 		FileInputStreamDemo fileInputStreamDemo = new FileInputStreamDemo();
 		String file  = fileInputStreamDemo.readFile(path);
-		System.out.println("读取到的文件内容为："+file);
+		System.out.println("读取到的文件内容为\n"+file);
 	}
 }
