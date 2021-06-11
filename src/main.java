@@ -19,13 +19,52 @@ import java.util.stream.Collectors;
 public class main {
     public static void main(String args[]) throws ParseException, IOException, InterruptedException {
 
+        double double123 = 0.00;
+        BigDecimal doubleBigDecimal = new BigDecimal(123);
+        double123 = new Double(doubleBigDecimal.toString());
+        doubleBigDecimal = doubleBigDecimal.add(new BigDecimal("123"));
 
+        // java只有值传递
+        // 注意参数赋值相当于是=操作。
+        // =操作很简单，就是弄一个副本给他，就是把栈上的值复制一份给他
+        // 基本数据类型是存在栈上的，所以直接复制过去，=之后再无瓜葛。
+        // 而引用类型栈上存得是堆上的地址，实际数据存在堆上的，相当于把地址复制一份。
+        // 如果直接对该地址进行操作（实际上会操作堆上的数据),那么就会修改原数据
+        // 如果使用new的话，会在堆上新建一个数据，然后将地址改掉，此时修改就不会修改原来的了。你如果继续用等于，相当于又是复制一份地址了。
+        // 而字符串比较特殊，因为被final 修饰了，如果修改就会在常量池上增加一个，指向新地址（Integer在一定大小内也会放到常量池)
+        int at = 3;
+        int bt = 5;
+        bt = at;  // bt =3 ,但是跟at再无瓜葛
+        bt = 4; // 不会修改at
         List<String> list1 = new ArrayList();
         list1.add("123");
-        // List不要用等于（对象赋值都不要用等于赋值)，是直接指向同一个列表
         List<String> list2 = new ArrayList<>();
-        list2=list1;
-        List<String> list3 = list1;
+        list2=list1; // 直接=
+        list2.add("4"); // 会修改list1
+        list2 = new ArrayList<>(); // 和list1再无瓜葛
+        list2.add("5");
+        List<String> list3 = list1;  // 直接=
+        list3.add("6"); // 会修改list1
+        list3 = new ArrayList<>(); // 和list1再无瓜葛
+        list3.add("7");
+        String st = "123";
+        String st1 = "456";
+        st1 = st;
+        st1 = "456";
+
+
+        // 测试
+
+        List<User> userTestList = new ArrayList<>();
+        User user = new User();
+        user.setId(123);
+        userTestList.add(user);
+        List<User> userTestList1 = new ArrayList<>();
+        userTestList1= userTestList;
+        List<User> userTestList2 = new ArrayList<>();
+        for(User user1 :userTestList1){
+
+        }
 
         int a111 =2;
         int b111 = a111;
