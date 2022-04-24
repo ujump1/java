@@ -1,11 +1,11 @@
-package IO.BufferedIOStream;
+package IO.IOutPutStream.BufferedIOStream;
 
 import java.io.*;
 
 /**
  *  BufferedInputStream学习，多了一个缓冲，就有可能减少和内核空间交互次数
  */
-public class BufferedIOStreamDemo {
+public class 	BufferedIOStreamDemo {
 
 	/**
 	 * 复制文件

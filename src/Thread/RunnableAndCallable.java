@@ -1,5 +1,7 @@
 package Thread;
 
+import Map.Entity.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -30,6 +32,13 @@ public class RunnableAndCallable {
         FutureTask<Integer> callTask3=new FutureTask<>(call3);
         FutureTask<Integer> callTask4 = (FutureTask<Integer>) executor.submit(callTask3);
 
+        // 5.runnable用ExecutorService.submit也是可以弄返回值的哈
+        User user = new User(1,"余江",24);
+        ImplementsCallableOfUser call4=new ImplementsCallableOfUser(user);
+        FutureTask<User> callTask5=new FutureTask<>(call4);
+        FutureTask<User> callTask6 = (FutureTask<User>) executor.submit(callTask5); // user都会变
+        FutureTask<User> callTask7 = (FutureTask<User>) executor.submit(callTask5,user); // 这个方法是废物把
+
         try
         {
             System.out.println("使用Thread启动runnable：");
@@ -42,6 +51,9 @@ public class RunnableAndCallable {
             System.out.println(callTask3.get());
             System.out.println("使用ExecutorService.submit启动runnable,返回：");
             System.out.println(callTask4.get());
+            System.out.println("使用ExecutorService.submit启动runnable并加上结果,返回：");
+            System.out.println(callTask7.get());
+            System.out.println("结束");
         }catch (Exception e){
             e.printStackTrace();
         }

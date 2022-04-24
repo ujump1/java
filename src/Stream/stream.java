@@ -10,6 +10,17 @@ import java.util.stream.Stream;
 public class stream {
 
     public static void main(String args[]){
+
+
+        "大1313".length();
+
+        String s1231231 ="{\"taskId\": \"14a8494e6093796558e7f8643fab6c5e\",\"processld\": \"14a80a23cb954823f942106444197246\",\"activityType\": \"reviewWorkitem\",\"operationType\": \"handler_commission\",\"param\": {\"operationName\":\"转办\",\"notifyType\": \"todo\",\"notifyOnFinish\": true,\"auditNote\":\"测试转办\",\"toOtherHandlerlds\": \"{\\\"LoginNamel\\\": \\\"test0021\\\"}\"}}";
+        String        processParam = "{\"sysWfBusinessForm.fdParameterJson\":" +
+                "{\"taskId\":\"" + "测试" + "\"," +
+                "\"processId\":\"" + "测试"  + "\"," +
+                "\"activityType\":\"" + "测试"  + "\"," +
+                "\"operationType\":\"handler_commission\"," +
+                "\"param\":{\"toOtherHandlerIds\":\"{\\\"LoginName\\\":\\\"" + "测试"  + "\\\"}\",'auditNote':'" + "测试"  + "'}}}";
         //Stream 获取
         //① 通过集合Collection获取
         List<Integer> list = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
@@ -30,6 +41,8 @@ public class stream {
         }
         //去重   相同的删除，部分字段相同的不能用此方法
         List<String> distinctList=test.stream().distinct().collect(Collectors.toList());
+        test = test.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(()
+                -> new TreeSet<>(Comparator.comparing(o -> o))), ArrayList::new));
         //部分字段用这个
        // List<FarmProduceUseRate> list = list1.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(o -> o.getCompanyCode() + ";" + o.getProduceName()+ ";" + o.getUseProduceName()+ ";" + o.getMatterCode()+ ";" + o.getCheckUnitNum()))), ArrayList::new));
         System.out.println(" ");
@@ -68,7 +81,7 @@ public class stream {
         System.out.println("统计");
         System.out.print(count);
         //分组
-        Map<Integer,List<String>> groupList=test.stream().collect(Collectors.groupingBy(s->Integer.parseInt(s)));
+        Map<Integer,List<String>> groupList=test.stream().collect(Collectors.groupingBy(s->Integer.parseInt(s) + Integer.parseInt(s)));
         System.out.println(" ");
         System.out.println("分组");
         for (Map.Entry<Integer,List<String>> entry: groupList.entrySet()){

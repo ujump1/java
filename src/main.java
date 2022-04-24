@@ -6,23 +6,148 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.MessageFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import static java.lang.Thread.sleep;
 
 public class main {
     public static void main(String args[]) throws ParseException, IOException, InterruptedException {
 
+
+
+        DateTimeFormatter dateFormatxx = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse("2019-05-27", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDateTime localDateTime = localDate.atStartOfDay();
+        Date dateX先生 =  new SimpleDateFormat("yyyy-MM-dd").parse("2019-05-27");
+        String sdian = "123.55";
+        sdian.contains("123.5");
+
+        double kexue = new Double("12345645211231313100000");
+        System.out.println(kexue);
+        System.out.println(new BigDecimal(String.valueOf(kexue)).toPlainString());
+        BigDecimal kexueBig = new BigDecimal("-111111111111111111111111111");
+        System.out.println(kexueBig.toString());
+        System.out.println(kexueBig);
+        System.out.println(kexueBig.toPlainString());
+        student studentx = new student();
+
+        String sx = null;
+        System.out.println(sx.toString());
+
+        CompletableFuture.runAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+            }
+            System.out.println("异步方法开始了");
+        });
+        System.out.println("123");
+        sleep(1000);
+        System.out.println("456");
+        String str = "x12243x";
+        Integer x1234 = str.indexOf(",");
+        String pattern = "^(?=1223|1223|12334)1223$"; // 等于
+        String pattern1 = "^(?:1223|1223|12334)$"; // 等于(注意=和:的区别)
+        String pattern2 = "^(?!.*?1223|1223|12334)(.*?)$"; // 不包含(注意=和:的区别)
+
+        Pattern r = Pattern.compile(pattern2);
+        Matcher m = r.matcher(str);
+        System.out.println(m.matches());
+
+        String replace1 = str.replace("1","");
+
+
+
+        SimpleDateFormat dateFormat123 = new SimpleDateFormat("yyyy-MM-dd");
+        Date date123 =  dateFormat123.parse("2021-01-01");
+        Calendar calendar123 = Calendar.getInstance();
+        calendar123.setTime(date123);
+        String year123 = String.valueOf(calendar123.get(Calendar.YEAR));
+
+        System.out.println(Long.valueOf(("010" + "000").replaceAll("[a-zA-Z]", "")));
+        List<List<BigDecimal>> listBigDecimals = new ArrayList<>();
+        List<BigDecimal> list1346 = new ArrayList<>();
+        list1346.add(new BigDecimal("0"));
+        list1346.add(new BigDecimal("1"));
+        list1346.add(new BigDecimal("3"));
+        list1346.add(new BigDecimal("4"));
+        list1346.add(new BigDecimal("1"));
+        List<BigDecimal> list231 = new ArrayList<>();
+        list231.add(new BigDecimal("2"));
+        list231.add(new BigDecimal("3"));
+        list231.add(new BigDecimal("1"));
+        list231.add(new BigDecimal("4"));
+        list231.add(new BigDecimal("1"));
+        listBigDecimals.add(list1346);
+        listBigDecimals.add(list231);
+        for(List<BigDecimal> list :listBigDecimals){
+            Collections.sort(list);
+        }
+
+
+
+        AtomicInteger projectCode = new AtomicInteger();
+       Integer xxxada = projectCode.getAndIncrement();
+        StringBuilder stringBuilder1 = new StringBuilder();
+        
+        Long has = Long.valueOf("1");
+        String snull = null ;
+        User user11=new User(1,"1",1);
+        User user12=new User(1,"1",1);
+        User user13=new User(1,"*1*2",12);
+        String sReplace  = user13.getName().replaceFirst("\\*"+"1"+"\\*","");
+        List<User> userList=new ArrayList<>();
+        userList.add(user11);
+        userList.add(user12);
+        userList.add(user13);
+        List<User> userList1 = new ArrayList<>();
+        System.out.println(userList);
+        System.out.println(userList.toString());
+        List<String> tttttttt= new ArrayList<>();
+        tttttttt.add("1");
+        tttttttt.add("2");
+        System.out.println(tttttttt.toString());
+        List<User> userLis1t=new ArrayList<>();
+        userLis1t.add(user11);
+        List<List<User>> xx =new ArrayList<>();
+        xx.add(userLis1t);
+        xx.add(userList);
+        userList1=xx.stream().flatMap(i -> i.stream()).collect(Collectors.toList());
+
+        student studentNull =null;
+        studentNull = new student();
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
+        numberFormat.setMaximumFractionDigits(8);
+        numberFormat.setMinimumFractionDigits(2);
+        numberFormat.setRoundingMode(RoundingMode.HALF_UP);
+        numberFormat.setGroupingUsed(false);
+        BigDecimal bigDecimalString1 = new BigDecimal("11123");
+        BigDecimal bigDecimalString2 = new BigDecimal("11311123.000100005");
+        String bigDecimalString2a = "1"+bigDecimalString1.setScale(4).toString()+"1";
+        String bigDecimalString3a =numberFormat.format(bigDecimalString1);
+        String bigDecimalString2b = "1"+bigDecimalString2+"1";
+
+
+        String bigDecimalString23 = "1"+bigDecimalString1.setScale(2, RoundingMode.HALF_UP)+"1";
+        String bigDecimalString24 = "1"+bigDecimalString2.setScale(2, RoundingMode.HALF_UP)+"1";
+        BigDecimal bigDecimalString3 = bigDecimalString1.setScale(2, RoundingMode.HALF_UP);
+
+
         double double123 = 0.00;
         BigDecimal doubleBigDecimal = new BigDecimal(123);
         double123 = new Double(doubleBigDecimal.toString());
-        doubleBigDecimal = doubleBigDecimal.add(new BigDecimal("123"));
+        doubleBigDecimal = doubleBigDecimal.add(new BigDecimal("123.000"));
 
         // java只有值传递
         // 注意参数赋值相当于是=操作。
@@ -46,6 +171,8 @@ public class main {
         List<String> list3 = list1;  // 直接=
         list3.add("6"); // 会修改list1
         list3 = new ArrayList<>(); // 和list1再无瓜葛
+        list3.add("1");
+        list3 = list3.subList(0,1);
         list3.add("7");
         String st = "123";
         String st1 = "456";
@@ -123,7 +250,7 @@ public class main {
 
 
         long expires = System.currentTimeMillis();
-        Thread.sleep(10);
+        sleep(10);
         long expires1 = System.currentTimeMillis();
 
 
@@ -255,26 +382,6 @@ public class main {
         String lastDayOfMonth = sdf2.format(cal.getTime());
         String equals ="111";
         equals.equals("1111");
-
-        User user11=new User(1,"1",1);
-        User user12=new User(1,"1",1);
-        User user13=new User(1,"12",12);
-        List<User> userList=new ArrayList<>();
-        userList.add(user11);
-        userList.add(user12);
-        userList.add(user13);
-        System.out.println(userList);
-        System.out.println(userList.toString());
-        List<String> tttttttt= new ArrayList<>();
-        tttttttt.add("1");
-        tttttttt.add("2");
-        System.out.println(tttttttt.toString());
-        List<User> userLis1t=new ArrayList<>();
-        userLis1t.add(user11);
-        List<List<User>> xx =new ArrayList<>();
-        xx.add(userLis1t);
-        xx.add(userList);
-        userList=xx.stream().flatMap(i -> i.stream()).collect(Collectors.toList());
 
         Calendar calendar1 = Calendar.getInstance();
         calendar1.set(Calendar.MONTH,12);
@@ -592,7 +699,7 @@ public class main {
             do{
                 while (threadPool.getActiveCount()>10){
                     try {
-                        Thread.sleep(1 * 1000);
+                        sleep(1 * 1000);
                         System.out.println("reach max pool size:"+threadPool.getPoolSize()+", wait 1 second...");
                         System.out.println("getCompletedTaskCount:"+threadPool.getCompletedTaskCount()+", wait 1 second...");
                     } catch (InterruptedException e) {
@@ -608,7 +715,7 @@ public class main {
 
         private static void work(){
             try {
-                Thread.sleep(5 * 1000);
+                sleep(5 * 1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
